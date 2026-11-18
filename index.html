@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#080d0c">
 <meta name="description" content="Velora - منصة الدراسة والإنجاز">
+ <link rel="manifest" href="./manifest.json">
+<meta name="theme-color" content="#080d0c">
 <title>Velora | منصة الإنجاز</title>
 <style>
 :root{--bg:#080d0c;--panel:#101916;--panel2:#17231e;--line:#26372f;--text:#f2f7f3;--muted:#9aada2;--accent:#a3e635;--radius:20px}
@@ -126,5 +128,14 @@ function resetData(){if(!confirm('هل تريد حذف بيانات Velora ال�
 function render(){const done=state.missionDone.length,pct=Math.round(done/260*100),rk=rank();['coins','sideCoins','storeCoins'].forEach(id=>$(id).textContent=state.coins);$('xp').textContent=state.xp;$('completed').textContent=done;$('level').textContent=Math.floor(state.xp/100)+1;$('missionPercent').textContent=pct+'%';$('homeProgress').style.width=pct+'%';$('missionCount').textContent=done+' / 260';$('missionProgressText').textContent=pct+'%';$('missionProgressBar').style.width=pct+'%';$('sessionsStat').textContent=state.sessions;$('xpStat').textContent=state.xp;$('tasksStat').textContent=state.tasks.length;$('questionsStat').textContent=state.questions.length;$('badges').innerHTML=`<span class="pill">${rk[0]} ${rk[1]}</span><span class="pill">📚 ${done} مهمة</span><span class="pill">⏱ ${state.sessions} جلسة</span>`;renderLists();renderStore();updateAvatars();applyTheme(state.activeTheme);const filter=$('missionFilters').querySelector('button.active')?.textContent||'الكل';renderMissions(filter)}
 makeNav();renderFilters();render();drawTimer();
 </script>
+ <script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js")
+      .then(() => console.log("Velora Offline Ready"))
+      .catch(err => console.error("SW Error:", err));
+  });
+}
+ </script>
 </body>
 </html>

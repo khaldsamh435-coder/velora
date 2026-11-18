@@ -1,0 +1,27 @@
+{
+  "name": "Velora | منصة الإنجاز",
+  "short_name": "Velora",
+  "description": "منصة Velora لتنظيم الدراسة والمهام والإنجاز",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#080d0c",
+  "theme_color": "#080d0c",
+  "lang": "ar",
+  "dir": "rtl",
+  "icons": [
+    {
+      "src": "./https://files.catbox.moe/d3h4ll.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./https://files.catbox.moe/d3h4ll.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
